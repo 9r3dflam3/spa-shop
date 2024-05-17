@@ -4,11 +4,6 @@ import mongoose from "mongoose";
 
 // 상품(goods)에 대한 정보를 나타내는 스키마를 정의합니다.
 const goodsSchema = new mongoose.Schema({
-  goodsId: {
-    type: Number,
-    required: true,
-    unique: true,
-  },
   name: {
     type: String,
     required: true,
@@ -27,7 +22,7 @@ const goodsSchema = new mongoose.Schema({
     required: true,
   },
   passward: {
-    type: String,
+    type: Number,
     required: true,
   },
   uploadTime: {

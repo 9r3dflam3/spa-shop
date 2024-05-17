@@ -10,13 +10,13 @@ const router = express.Router();
 
 /** 상품 등록 **/
 // localhost:3000/api/goods POST
-router.post("/goods", checkGoods, async (req, res, next) => {
+router.post("/goods", async (req, res, next) => {
   try {
     const validation = await createGoods.validateAsync(req.body);
 
     const { name, goodsExp, manager, goodsStat, password } = validation;
 
-    const goodsFind = await Goods.find({ goodsId }).exec();
+    const goodsFind = await Goods.find({ name }).exec();
     if (goodsFind.length !== 0) {
       return res
         .status(400)
